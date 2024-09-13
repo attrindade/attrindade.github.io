@@ -71,7 +71,7 @@ O desenvolvimento técnico da plataforma, da documentação e da página web, fo
 ### Apoio
 
 {{< two-images 
-  image1="images/ufrgs.png"  alt1=""  link1="http://www.ufrgs.br/ufrgs/inicial"
+  image1="images/ufrgs.png"  alt1="UFRGS"  link1="http://www.ufrgs.br/ufrgs/inicial"
   image2="images/temas.png"  alt2="TEMAS"  link2="https://www.ufrgs.br/temas/"
   image3="images/attrindade.png"  alt3="ATTrindade"  link3="https://www.attrindade.com"
   ratio="60-30-10" 

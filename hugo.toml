@@ -5,9 +5,9 @@ disableKinds = ["section", "taxonomy", "term", "RSS", "robotsTXT"]
 
 defaultContentLanguage = "En"
 
-[[menu.main]]
-name = "Documentação"
-url = "/docs/"
+# [[menu.main]]
+# name = "Documentação"
+# url = "/docs/"
 
 # The name of this wonderful theme ;-).
 theme = "hugo-scroll"

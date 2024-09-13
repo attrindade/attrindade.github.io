@@ -6,7 +6,7 @@ header_menu: true
 
 Descubra mais sobre a plataforma e o conteúdo produzido pelas equipes.
 
-#### [Documentação](/docs/)
+#### [Documentação](https://attrindade.github.io/docs)
 
 Confira a documentação completa com a explicação de todas funcionalidades da plataforma, a descrição da estrutura do banco de dados e as metodologias equipes de pesquisa.
 
