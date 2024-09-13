@@ -1,0 +1,164 @@
+<!-- A partial to be overwritten by the user.
+     Its content will appear before the closing </head>-tag -->
+
+
+<!-- Custom CSS via inline styles
+     You may use this template to add custom CSS to your site like so: -->
+<style>
+:root {
+
+    --cover-text-color: #2f9f41;
+    --highlight: rgb(39 156 58 / 82%);
+    --highlight-contrast: #ffffffa6;
+    --highlight-inverse: #28bf41;
+    --highlight-inverse-contrast: #d6edff;
+ 
+    --cover-title-text-shadow: #000000 2px 2px 20px;
+    --sticky-menu-text-color: #018133;
+    --section-light-bg-color: #e1e1e1;
+    --secion-dark-text-color: #e1e1e1;
+    --section-dark-bg-color: #018133;
+    --footer-color-background: #000000dc;
+}
+
+/* CSS para as duas imagens em linha */
+
+.two-images-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+}
+
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+  margin: 0 10px;
+}
+
+.image-link {
+  display: block;
+  overflow: hidden;
+}
+
+.image-link img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+.image-link:hover img {
+  transform: scale(0.95);
+}
+
+.image-caption {
+  text-align: center;
+  margin-top: 5px;
+  font-size: 0.9em;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .two-images-container {
+    flex-direction: column;
+  }
+  
+  .image-wrapper {
+    width: 100% !important;
+    margin: 10px 0;
+  }
+}
+
+/* CSS para a transição smooth dos details*/
+
+details {
+  transition: all 0.3s ease;
+}
+
+details[open] summary ~ * {
+  animation: smoothExpand 0.3s ease-in-out;
+}
+
+@keyframes smoothExpand {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* remoção da seta nos details */
+
+details > summary {
+  list-style: none;
+  cursor: pointer;
+
+details[open] summary {
+   background: #F9D478;
+}
+
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* CSS para fazer os summaries dos details ficarem bonitos */
+
+details {
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  padding: 0.5em 0.5em 0;
+  margin-bottom: 1em;
+}
+
+summary {
+  font-weight: bold;
+  margin: -0.5em -0.5em 0;
+  padding: 0.5em;
+  cursor: pointer;
+}
+
+details[open] {
+  padding: 0.8em;
+}
+
+details[open] summary {
+  border-bottom: 1px solid #aaa;
+  margin-bottom: 0.5em;
+}
+
+/* correção do height e padding para o site-head ser mostrado por inteiro em telas menores */
+
+@media only screen and (max-width: 500px) {
+    #site-head {
+        padding: 10% 0;
+        height: 100%;
+    }
+}
+
+</style>
+
+<!-- Custom CSS via "custom.css"-file
+     If you would rather place your custom CSS into
+     a separate file, create a "custom.css" in your
+     local "static/css"-directory. Then add a <link>-tag
+     referencing your "custom.css" like so: -->
+
+<!-- <link rel="stylesheet" href='{{ "css/custom.css" | absURL }}'> -->
+
+<!-- Custom CSS: Color Codes
+     You may checkout https://htmlcolorcodes.com/ to get those
+     weird color codes (like "#22343A") ;-). -->
+
+<!-- Custom link-tags for different icons
+     Generated via https://favicon.io/favicon-generator/ -->
+
+{{ with resources.Get "images/apple-touch-icon.png" }}<link rel="apple-touch-icon" sizes="180x180" href="{{ .RelPermalink }}" />{{ end }}
+{{ with resources.Get "images/favicon.svg" }}<link rel="icon" type="image/svg+xml" href="{{ .RelPermalink }}" />{{ end }}
+{{ range seq 9 4 }}{{ $size := pow 2 . }}{{ $file := replace "images/favicon-##x##.png" "##" $size }}{{ with resources.Get $file }}
+<link rel="icon" type="{{ .MediaType.Type }}" sizes="{{- $size -}}x{{- $size -}}" href="{{ .RelPermalink }}" />{{ end }}{{ end }}
+

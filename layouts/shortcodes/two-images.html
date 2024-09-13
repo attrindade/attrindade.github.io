@@ -1,0 +1,49 @@
+{{ $image1 := .Get "image1" }}
+{{ $alt1 := .Get "alt1" }}
+{{ $link1 := .Get "link1" }}
+{{ $image2 := .Get "image2" }}
+{{ $alt2 := .Get "alt2" }}
+{{ $link2 := .Get "link2" }}
+{{ $image3 := .Get "image3" }}
+{{ $alt3 := .Get "alt3" }}
+{{ $link3 := .Get "link3" }}
+{{ $image4 := .Get "image4" }}
+{{ $alt4 := .Get "alt4" }}
+{{ $link4 := .Get "link4" }}
+{{ $ratio := .Get "ratio" | default "25-25-25-25" }}
+{{ $size := .Get "size" | default "100" }}
+
+<div class="images-container" style="display: flex; justify-content: center; align-items: center; width: {{ $size }}%; margin: 0 auto;">
+  {{ $widths := split $ratio "-" }}
+  {{ $images := slice $image1 $image2 $image3 $image4 }}
+  {{ $alts := slice $alt1 $alt2 $alt3 $alt4 }}
+  {{ $links := slice $link1 $link2 $link3 $link4 }}
+  
+  {{ $imageCount := 0 }}
+  {{ range $images }}
+    {{ if . }}
+      {{ $imageCount = add $imageCount 1 }}
+    {{ end }}
+  {{ end }}
+
+  {{ range $index, $image := $images }}
+    {{ if $image }}
+      {{ $width := index $widths $index }}
+      {{ if eq $imageCount 1 }}
+        {{ $width = "100" }}
+      {{ else if eq $imageCount 2 }}
+        {{ $width = index (split "50-50" "-") $index }}
+      {{ else if eq $imageCount 3 }}
+        {{ $width = index (split "33-33-34" "-") $index }}
+      {{ else }}
+        {{ $width = index (split "25-25-25-25" "-") $index }}
+      {{ end }}
+      <div class="image-wrapper" style="width: {{ $width }}%;">
+        <a href="{{ index $links $index }}" target="_blank" rel="noopener noreferrer" class="image-link">
+          <img src="{{ $image }}" alt="{{ index $alts $index }}" style="width: 100%; height: auto;">
+        </a>
+        <p class="image-caption">{{ index $alts $index }}</p>
+      </div>
+    {{ end }}
+  {{ end }}
+</div>
