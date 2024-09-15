@@ -2,4 +2,8 @@
     --md-primary-fg-color:        #018133;
     --md-primary-fg-color--light: #018133;
     --md-primary-fg-color--dark:  #018133;
+    --md-default-bg-color: #e1e1e1;
+    --md-default-bg-color--light: #e1e1e1;
+    --md-default-bg-color--lighter: #e1e1e1;
+    --md-default-bg-color--lightest: #e1e1e1;
   }
