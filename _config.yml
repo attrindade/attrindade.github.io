@@ -258,7 +258,7 @@ scholar:
   last_name: [Trindade]
   first_name: [A.]
 
-  style: abnt
+  style: apa
   locale: pt-BR
 
   source: /_bibliography/
